@@ -1,5 +1,5 @@
-# BPHunter
-Genome-wide detection of deep intronic variants that affect recursive splicing
+# DIVERS
+Genome-wide detection of <ins>D</ins>eep <ins>I</ins>ntronic <ins>V</ins>ariants with <ins>E</ins>ffect on <ins>R</ins>ecursive <ins>S</ins>plicing
 
 ## Introduction
 - Human transcripts of long introns can be removed from pre-mRNA by recursive splicing (RS), a multi-step splicing mechanism that seamlessly converts a long intronic sequence into smaller segments for precise removal. 
