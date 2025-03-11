@@ -13,6 +13,7 @@ Genome-wide detection of <ins>D</ins>eep <ins>I</ins>ntronic <ins>V</ins>ariants
 ## News
 - Mar 2025: DIVERS webserver & GitHub was launched.  
 - Apr 2024: DIVERS prototype was completed.
+- Feb 2023: DIVERS idea was conceived.
 
 ## Usage 
 Current version: version-1
