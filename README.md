@@ -65,7 +65,7 @@ Parameter | Type | Description | Default
 
 
 ## Reference
-- ***Zhang P. et al.*** Zhang P. et al. Genome-wide detection of human deep intronic variants that affect recursive splicing. 2025.
+- ***Zhang P. et al.*** Genome-wide detection of human deep intronic variants that affect recursive splicing. 2025.
 
 ## Contact
 > **Developer:** Peng Zhang, Ph.D.
