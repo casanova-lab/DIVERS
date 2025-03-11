@@ -21,7 +21,7 @@ Current version: version-1
 The code is written in [python3](https://www.python.org/downloads/), and requires [bedtools](https://bedtools.readthedocs.io/en/latest/) installed.
 
 ### Reference dataset
-Due to the file size limit in GitHub, please download the [DIVERS reference dataset](http://hgidsoft.rockefeller.edu/DIVERS/data/sample_variants_DIVERS.vcf) and put them into your DIVERS folder.
+Due to the file size limit in GitHub, please download the [DIVERS reference dataset](http://hgidsoft.rockefeller.edu/DIVERS/standalone.html) and put it into your DIVERS folder.
 
 ### File Format
 **Input:** Variants in VCF format (GRCh38/hg38), with 5 mandatory fields (CHROM, POS, ID, REF, ALT) tab-delimited.
