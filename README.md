@@ -6,7 +6,7 @@ Genome-wide detection of <ins>D</ins>eep <ins>I</ins>ntronic <ins>V</ins>ariants
 
 - Deep intronic variants that disrupt RS could in principle alter splicing, leading to intronic retentions with/without frameshifts and premature stops, thus resulting in deleterious and pathogenic gene products, underlying human diseases and traits. 
 
-- DIVERS is a genome-wide computational approach for detecting deep intronic variants that may impact RS, systematically and efficiently. DIVERS currently identifies five types of variant: "RS_AGGT", "RS_BP", "RS_AGAIN", "RS_DW5SS", and "CRYP_RS".
+- DIVERS is a genome-wide computational approach for detecting deep intronic variants that may impact RS, systematically and efficiently. DIVERS currently identifies five types of variants: "RS_AGGT", "RS_BP", "RS_AGAIN", "RS_DW5SS", and "CRYP_RS".
 
 - This standalone version can be easily implemented by a one-line command, for large-scale analysis. We also provide the [webserver version](https://hgidsoft.rockefeller.edu/DIVERS) with user-friendly interface, for a small-scale analysis.
 
@@ -21,12 +21,10 @@ Current version: version-1
 The code is written in [python3](https://www.python.org/downloads/), and requires [bedtools](https://bedtools.readthedocs.io/en/latest/) installed.
 
 ### Reference dataset
-Due to the file size limit in GitHub, please download the [DIVERS reference dataset](http://hgidsoft.rockefeller.edu/DIVERS/standalone.html) and put them into your DIVERS folder.
-
-To use the latest version-2, please download and replace the reference datasets.
+Due to the file size limit in GitHub, please download the [DIVERS reference dataset](http://hgidsoft.rockefeller.edu/DIVERS/data/sample_variants_DIVERS.vcf) and put them into your DIVERS folder.
 
 ### File Format
-**Input:** Variants in VCF format, with 5 mandatory fields (CHROM, POS, ID, REF, ALT) tab-delimited.
+**Input:** Variants in VCF format (GRCh38/hg38), with 5 mandatory fields (CHROM, POS, ID, REF, ALT) tab-delimited.
   - sample_variants_DIVERS.vcf
 
 **Output:** DIVERS-detected variants will be output in CSV format, with the following annotations.
