@@ -44,7 +44,7 @@ Due to the file size limit, please download the [DIVERS reference dataset](http:
   - RS_CONSEQ: the predicted consequences (RS_AGGT, RS_BP, RS_BP2, RS_AGAIN, RS_DW5SS_x-nt, CRYP_RS_DW5SS_x-nt, CRYP_RS_UP3SS_x-nt), where x-nt suggesting the size between the paired cryptic splice sites
 
 
-### Command & Parameters (BPHunter_VCF.py)
+### Command & Parameters (DIVERS_VCF.py)
 ```
 python DIVERS_VCF.py -i variants.vcf
 ```
@@ -53,7 +53,7 @@ Parameter | Type | Description | Default
 ----------|------|-------------|--------------
 *-i*|file|variants in VCF format, with 5 fields (CHROM, POS, ID, REF, ALT)|N.A.
 
-### Command & Parameters (BPHunter_VCF_batch.py)
+### Command & Parameters (DIVERS_VCF_batch.py)
 ```
 python DIVERS_VCF_batch.py -d directory -s samplelist.txt -o output.txt
 ```
