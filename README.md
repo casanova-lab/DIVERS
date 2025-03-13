@@ -38,8 +38,9 @@ Due to the file size limit, please download the [DIVERS reference dataset](http:
   - IVS_SIZE: the size of the intron
   - RS_COUNT: the total count of RS in this intron
   - RS#: the ranking number of the RS in this intron (e.g. RS1, RS2, RS3)
+  - BP_POS: the BP position of the RS
+  - PPT: the pyrimidine content in the PPT region
   - RS_POS: the first position of the essential RS-site AGGT
-  - RS_UP_DW: the distance to its upstream and downstream RS-sites (e.g. -1111_+2222)
   - CLIP: if the RS-site is supported by eCLIP-U2AF data (Y/N)
   - RS_CONSEQ: the predicted consequences (RS_AGGT, RS_BP, RS_BP2, RS_AGAIN, RS_DW5SS_x-nt, CRYP_RS_DW5SS_x-nt, CRYP_RS_UP3SS_x-nt), where x-nt suggesting the size between the paired cryptic splice sites
 
