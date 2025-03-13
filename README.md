@@ -30,7 +30,7 @@ Due to the file size limit, please download the [DIVERS reference dataset](http:
 
 **Output:** DIVERS-detected variants will be output in CSV format, with the following annotations.
   - SAMPLE: sample name (only for DIVERS_VCF_batch.py)
-  - CHROM, POS, ID, REF, ALT: (exactly the same as input)
+  - CHROM, POS, REF, ALT: (exactly the same as input)
   - STRAND: the strand +/- where the variant found affecting RS
   - GENE: gene symbol
   - TRANSCRIPT: transcript ID (e.g. ENST123456789)
@@ -56,7 +56,7 @@ Parameter | Type | Description | Default
 
 ### Command & Parameters (DIVERS_VCF_batch.py)
 ```
-python DIVERS_VCF_batch.py -d directory -s samplelist.txt -o output.txt
+python DIVERS_VCF_batch.py -d ./foldername/ -s samplelist.txt -o output.csv
 ```
 
 Parameter | Type | Description | Default
