@@ -51,6 +51,7 @@ def score_5ss(motif):
 
 var_input_set = set()
 var_output_set = set()
+var_output_annot = 0
 var_count_AGGT = 0
 var_count_BP = 0
 var_count_BP2 = 0
@@ -200,6 +201,7 @@ try:
 
         # DIVERS Output
         if DIVERS_flag:
+            var_output_annot += 1
             file_out.write(chrom+','+pos+','+ref+','+alt+','+strand+','+
                            gene+','+transcript+','+ivs+','+ivs_length+','+RS_total+','+RS_rank+','+
                            BP_pos+','+PPT+','+RS_pos+','+clip+','+RS_conseq+'\n')
@@ -212,7 +214,8 @@ try:
     print('Input file:', filename_var)
     print('Output file:', filename_out, '\n')
     print('# Input variants:', str(len(var_input_set)))
-    print('# Output variants:', str(len(var_output_set)), '\n')
+    print('# Output variants:', str(len(var_output_set)))
+    print('# Output annotations:', str(var_output_annot), '\n')
     print('# RS_AGGT:\t', str(var_count_AGGT))
     print('# RS_BP:\t', str(var_count_BP))
     print('# RS_BP-2:\t', str(var_count_BP2))
