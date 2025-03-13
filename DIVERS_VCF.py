@@ -86,8 +86,8 @@ try:
     os.system("bedtools intersect -wo -s -a " + filename_bed + " -b DIVERS_detection.bed > " + filename_map)
     file_map = open(filename_map, 'r')
     file_out = open(filename_out, 'w')
-    file_out.write('CHR\tPOS\tREF\tALT\tSTRAND\tGENE\tTRANSCRIPT\tIVS#\tIVS_LENGTH\t'
-                   'RS_TOTAL\tRS#\tBP_POS\tPPT_Y\tRS_POS\tCLIP\tRS_CONSEQ\n')
+    file_out.write('CHR,POS,REF,ALT,STRAND,GENE,TRANSCRIPT,IVS#,IVS_LENGTH,'
+                   'RS_TOTAL,RS#,BP_POS,PPT_Y,RS_POS,CLIP,RS_CONSEQ\n')
 
     for eachline in file_map:
         item = eachline.strip().split('\t')
@@ -200,9 +200,9 @@ try:
 
         # DIVERS Output
         if DIVERS_flag:
-            file_out.write(chrom+'\t'+pos+'\t'+ref+'\t'+alt+'\t'+strand+'\t'+
-                           gene+'\t'+transcript+'\t'+ivs+'\t'+ivs_length+'\t'+RS_total+'\t'+RS_rank+'\t'+
-                           BP_pos+'\t'+PPT+'\t'+RS_pos+'\t'+clip+'\t'+RS_conseq+'\n')
+            file_out.write(chrom+','+pos+','+ref+','+alt+','+strand+','+
+                           gene+','+transcript+','+ivs+','+ivs_length+','+RS_total+','+RS_rank+','+
+                           BP_pos+','+PPT+','+RS_pos+','+clip+','+RS_conseq+'\n')
 
     file_out.close()
     file_map.close()

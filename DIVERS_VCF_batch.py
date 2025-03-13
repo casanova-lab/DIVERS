@@ -37,8 +37,8 @@ filename_sample = args.sample
 filename_out = args.output
 
 file_out = open(filename_out+'.csv', 'w')
-file_out.write('SAMPLE\tCHR\tPOS\tREF\tALT\tSTRAND\tGENE\tTRANSCRIPT\tIVS#\tIVS_LENGTH\t'
-               'RS_TOTAL\tRS#\tBP_POS\tPPT_Y\tRS_POS\tCLIP\tRS_CONSEQ\n')
+file_out.write('SAMPLE,CHR,POS,REF,ALT,STRAND,GENE,TRANSCRIPT,IVS#,IVS_LENGTH,'
+               'RS_TOTAL,RS#,BP_POS,PPT_Y,RS_POS,CLIP,RS_CONSEQ\n')
 
 base_pairing = {'A':'T', 'T':'A', 'G':'C', 'C':'G', 'N':'N'}
 def score_5ss(motif):
@@ -209,9 +209,9 @@ for eachsample in file_sample:
 
             # DIVERS Output
             if DIVERS_flag:
-                file_out.write(sample+'\t'+chrom+'\t'+pos+'\t'+ref+'\t'+alt+'\t'+strand+'\t'+
-                               gene+'\t'+transcript+'\t'+ivs+'\t'+ivs_length+'\t'+RS_total+'\t'+RS_rank+'\t'+
-                               BP_pos+'\t'+PPT+'\t'+RS_pos+'\t'+clip+'\t'+RS_conseq+'\n')
+                file_out.write(sample+','+chrom+','+pos+','+ref+','+alt+','+strand+','+
+                               gene+','+transcript+','+ivs+','+ivs_length+','+RS_total+','+RS_rank+','+
+                               BP_pos+','+PPT+','+RS_pos+','+clip+','+RS_conseq+'\n')
 
         file_map.close()
         os.remove(filename_bed)
