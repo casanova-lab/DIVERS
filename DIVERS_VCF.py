@@ -62,24 +62,30 @@ var_count_CRYPRS = 0
 try:
     file_var = open(filename_var, 'r')
     file_bed = open(filename_bed, 'w')
+    var_header = file_var.readline().strip()
+    var_header_out = ','.join(var_header.split('\t')[5:])
 
     for eachline in file_var:
         if not eachline.startswith('#'):
             item = eachline.strip().split('\t')
             chrom = item[0]
             pos = item[1]
+            var_id = item[2]
             ref = item[3]
             alt = item[4]
             if 'chr' not in chrom:
                 chrom = 'chr' + chrom
-            var_id = chrom+'*'+pos+'*'+ref+'*'+alt
+            var_name = chrom+'*'+pos+'*'+var_id+'*'+ref+'*'+alt
+            var_info = ','.join(item[5:])
+            if not var_info:
+                var_info = '.'
             var_start = var_end = '.'
-            if (len(ref) == 1) and (len(alt) == 1) and (var_id not in var_input_set):
+            if (ref != '.') and (alt != '.') and (len(ref) == 1) and (len(alt) == 1) and (var_name not in var_input_set):
                 var_start = str(int(pos)-1)
                 var_end = pos
-                var_input_set.add(var_id)
-                file_bed.write(chrom+'\t'+var_start+'\t'+var_end+'\t'+var_id+'\t.\t+\n')
-                file_bed.write(chrom+'\t'+var_start+'\t'+var_end+'\t'+var_id+'\t.\t-\n')
+                var_input_set.add(var_name)
+                file_bed.write(chrom+'\t'+var_start+'\t'+var_end+'\t'+var_name+'\t.\t+\t'+var_info+'\n')
+                file_bed.write(chrom+'\t'+var_start+'\t'+var_end+'\t'+var_name+'\t.\t-\t'+var_info+'\n')
     file_var.close()
     file_bed.close()
 
@@ -87,36 +93,40 @@ try:
     os.system("bedtools intersect -wo -s -a " + filename_bed + " -b DIVERS_detection.bed > " + filename_map)
     file_map = open(filename_map, 'r')
     file_out = open(filename_out, 'w')
-    file_out.write('CHR,POS,REF,ALT,STRAND,GENE,TRANSCRIPT,IVS#,IVS_LENGTH,'
-                   'RS_TOTAL,RS#,BP_POS,PPT_Y,RS_POS,CLIP,RS_CONSEQ\n')
+    file_out.write('CHR,POS,ID,REF,ALT,STRAND,GENE,TRANSCRIPT,IVS#,IVS_LENGTH,'
+                   'RS_TOTAL,RS#,BP_POS,PPT_Y,RS_POS,CLIP,RS_CONSEQ,'+var_header_out+'\n')
 
     for eachline in file_map:
         item = eachline.strip().split('\t')
         chrom = item[0]
         var_start = int(item[1])
         var_end = int(item[2])
-        var_id = item[3]
+        var_name = item[3]
         strand = item[5]
-        RS_element_start = int(item[7])
-        RS_element_end = int(item[8])
-        gene = item[12]
-        transcript = item[13]
-        ivs = item[14]
-        ivs_length = item[15]
-        RS_total = item[16]
-        RS_rank = item[17]
-        BP_pos = item[18]
-        PPT = item[19]
-        RS_pos = item[20]
-        clip = item[21]
-        RS_conseq = item[22]
-        seq_wt = item[23]
+        var_info = item[6]
+        RS_element_start = int(item[8])
+        RS_element_end = int(item[9])
+        gene = item[13]
+        transcript = item[14]
+        ivs = item[15]
+        ivs_length = item[16]
+        RS_total = item[17]
+        RS_rank = item[18]
+        BP_pos = item[19]
+        PPT = item[20]
+        RS_pos = item[21]
+        clip = item[22]
+        RS_conseq = item[23]
+        seq_wt = item[24]
         seq_mt = '.'
 
-        var_id_list = var_id.split('*')
-        pos = var_id_list[1]
-        ref = var_id_list[2]
-        alt = var_id_list[3]
+        var_name_list = var_name.split('*')
+        pos = var_name_list[1]
+        var_id = var_name_list[2]
+        ref = var_name_list[3]
+        alt = var_name_list[4]
+        if var_info == '.':
+            var_info = ''
 
         # seq analysis for AGAIN and DOWN only
         if RS_conseq in ['RS_AGAIN','RS_DW5SS']:
@@ -135,19 +145,19 @@ try:
         if RS_conseq == 'RS_AGGT':
             var_count_AGGT += 1
             DIVERS_flag = 1
-            var_output_set.add(var_id)
+            var_output_set.add(var_name)
 
         # RS_BP & RS_BP2
         if RS_conseq == 'RS_BP':
             var_count_BP += 1
             DIVERS_flag = 1
-            var_output_set.add(var_id)
+            var_output_set.add(var_name)
 
         if RS_conseq == 'RS_BP2':
             if (strand == '+' and alt in ['A','G']) or (strand == '-' and alt in ['C','T']):
                 var_count_BP2 += 1
                 DIVERS_flag = 1
-                var_output_set.add(var_id)
+                var_output_set.add(var_name)
 
         # RS_AGAIN
         if RS_conseq == 'RS_AGAIN':
@@ -161,7 +171,7 @@ try:
                 if seq_mt[AG_hit-3] in ['C','T']:
                     var_count_AGAIN += 1
                     DIVERS_flag = 1
-                    var_output_set.add(var_id)
+                    var_output_set.add(var_name)
 
         # RS_DW5SS
         if RS_conseq == 'RS_DW5SS':
@@ -175,11 +185,11 @@ try:
                         RS_conseq += '_'+str(i+3)+'nt'
                         var_count_DW5SS += 1
                         DIVERS_flag = 1
-                        var_output_set.add(var_id)
+                        var_output_set.add(var_name)
                         break
 
         # CRYP_RS
-        if ('CRYPRS' in RS_conseq) and (var_id not in var_output_set):
+        if ('CRYPRS' in RS_conseq) and (var_name not in var_output_set):
             CRYPRS_type = seq_wt
             CRYPRS_flag = 0
             if CRYPRS_type == 'NGGT':
@@ -197,14 +207,14 @@ try:
             if CRYPRS_flag:
                 var_count_CRYPRS += 1
                 DIVERS_flag = 1
-                var_output_set.add(var_id)
+                var_output_set.add(var_name)
 
         # DIVERS Output
         if DIVERS_flag:
             var_output_annot += 1
-            file_out.write(chrom+','+pos+','+ref+','+alt+','+strand+','+
+            file_out.write(chrom+','+pos+','+var_id+','+ref+','+alt+','+strand+','+
                            gene+','+transcript+','+ivs+','+ivs_length+','+RS_total+','+RS_rank+','+
-                           BP_pos+','+PPT+','+RS_pos+','+clip+','+RS_conseq+'\n')
+                           BP_pos+','+PPT+','+RS_pos+','+clip+','+RS_conseq+','+var_info+'\n')
 
     file_out.close()
     file_map.close()
