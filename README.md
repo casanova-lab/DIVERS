@@ -27,7 +27,7 @@ Due to the file size limit, please download the [DIVERS reference dataset](http:
 ### File Format
 **Input:** Variants in VCF format (GRCh38/hg38), with 5 mandatory fields (CHROM, POS, ID, REF, ALT) tab-delimited.
   - Check the example: sample_variants_DIVERS.vcf
-  - DIVERS will append all other annotation fields from your input to the end of its output (note, no comma ',' in your annotation, as it will mess up with CSV output generation)
+  - DIVERS will append all other annotation fields from your input to the end of its output (Note: no comma ',' in your annotation fields, as it will mess up with CSV output generation)
 
 **Output:** DIVERS-detected variants will be output in CSV format, with the following annotations.
   - SAMPLE: sample name (only for DIVERS_VCF_batch.py)
@@ -44,7 +44,7 @@ Due to the file size limit, please download the [DIVERS reference dataset](http:
   - RS_POS: the first position of the essential RS-site AGGT
   - CLIP: if the RS-site is supported by eCLIP-U2AF data (Y/N)
   - RS_CONSEQ: the predicted consequences (RS_AGGT, RS_BP, RS_BP2, RS_AGAIN, RS_DW5SS_x-nt, CRYP_RS_DW5SS_x-nt, CRYP_RS_UP3SS_x-nt), where x-nt suggesting the size between the paired cryptic splice sites
-  - All other annotation fields from the input data (note, if you are using DIVERS_VCF_batch.py, all VCF files should have the same annotation fields)
+  - All other annotation fields from the input data (Note: if you are using DIVERS_VCF_batch.py, all VCF files should have the same annotation fields)
 
 
 ### Command & Parameters (DIVERS_VCF.py)
