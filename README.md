@@ -25,7 +25,7 @@ The code is written in [python3](https://www.python.org/downloads/), and require
 Due to the file size limit, please download the [DIVERS reference dataset](http://hgidsoft.rockefeller.edu/DIVERS/standalone.html) and put it into your DIVERS folder.
 
 ### File Format
-**Input:** Variants in VCF format (GRCh38/hg38), with 5 mandatory fields (CHROM, POS, ID, REF, ALT) tab-delimited.
+**Input:** Variants in VCF format (GRCh38/hg38), with 5 mandatory tab-delimited fields (CHROM, POS, ID, REF, ALT).
   - Check the example: sample_variants_DIVERS.vcf
   - DIVERS will append all other annotation fields from your input to the end of its output (Note: no comma ',' in your annotation fields, as it will mess up with CSV output generation)
 
