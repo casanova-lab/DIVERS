@@ -31,23 +31,23 @@ Due to the file size limit, please download the [DIVERS_Detection.bed](http://hg
   - DIVERS will append all other annotation fields from your input to the end of its output
 
 **Output:** DIVERS-detected variants will be output in CSV format, with the following annotations.
-  - SAMPLE: sample name (only for DIVERS_VCF_batch.py)
-  - CHROM, POS, ID, REF, ALT: (exactly the same as input)
-  - STRAND: the strand +/- where the variant found affecting RS
-  - GENE: gene symbol
-  - TRANSCRIPT: transcript ID (e.g. ENST123456789)
-  - IVS#: the ranking number of the intron in the gene (e.g. IVS1, IVS2, IVS3)
-  - IVS_SIZE: the size of the intron
-  - RS#: the ranking number of the RS in this intron (e.g. RS1, RS2, RS3)
-  - RS_CONSEQ: the predicted consequences (RS-AGGT, RS-BP/BP2, RS-AGAIN, RS-DW5SS-xnt, CRYPRS-DW5SS/UP3SS-xnt), where xnt suggesting the size between the paired cryptic splice sites
-  - RS_SCORE: the weighted confidence score of RS-site (1-5, the higher the better)
-  - RS_POS: the first position of the essential RS-site AGGT
-  - BP_POS: the BP position of the RS-site
-  - PPT: the pyrimidine content in the PPT region
-  - CLIP: if the RS-site is supported by eCLIP-U2AF data (Y/N)
-  - RARE: if the RS-site is absent of common human variants (Y/N)
-  - CONSERV: if the RS-site is positively scored by conservation score phyloP (numerical)
-  - RNALM: if the RS-site is predicted by RNA language model (0-1)
+  - **SAMPLE**: sample name (only for DIVERS_VCF_batch.py)
+  - **CHROM, POS, ID, REF, ALT**: (exactly the same as input)
+  - **STRAND**: the strand +/- where the variant found affecting RS
+  - **GENE**: gene symbol
+  - **TRANSCRIPT**: transcript ID (e.g. ENST123456789)
+  - **IVS#**: the ranking number of the intron in the gene (e.g. IVS1, IVS2, IVS3)
+  - **IVS_SIZE**: the size of the intron
+  - **RS#**: the ranking number of the RS in this intron (e.g. RS1, RS2, RS3)
+  - **RS_CONSEQ**: the predicted consequences (RS-AGGT, RS-BP/BP2, RS-AGAIN, RS-DW5SS-xnt, CRYPRS-DW5SS/UP3SS-xnt), where xnt suggesting the size between the paired cryptic splice sites
+  - **RS_SCORE**: the weighted confidence score of RS-site (1-5, the higher the better)
+  - **RS_POS**: the first position of the essential RS-site AGGT
+  - **BP_POS**: the BP position of the RS-site
+  - **PPT**: the pyrimidine content in the PPT region
+  - **CLIP**: if the RS-site is supported by eCLIP-U2AF data (Y/N)
+  - **RARE**: if the RS-site is absent of common human variants (Y/N)
+  - **CONSERV**: if the RS-site is positively scored by conservation score phyloP (numerical)
+  - **RNALM**: if the RS-site is predicted by RNA language model (0-1)
   - All other annotation fields from the input data (Note: for DIVERS_VCF_batch.py, all input VCFs must contain the same annotation fields)
 
 ### Command & Parameters (DIVERS_VCF.py)
