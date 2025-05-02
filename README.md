@@ -2,13 +2,13 @@
 Genome-wide detection of <ins>D</ins>eep <ins>I</ins>ntronic <ins>V</ins>ariants with <ins>E</ins>ffect on <ins>R</ins>ecursive <ins>S</ins>plicing
 
 ## Introduction
-- Human transcripts of long introns can be removed from pre-mRNA by recursive splicing (RS), a multi-step splicing mechanism that seamlessly converts a long intronic sequence into smaller segments for removal. 
+- Human transcripts with long introns can undergo recursive splicing (RS) - a stepwise splicing mechanism that efficiently and seamlessly removes long intronic sequences by converting them into smaller segments. 
 
-- Deep intronic variants that disrupt RS could alter splicing, leading to intronic retentions with/without frameshifts and premature stops, thus resulting in deleterious and pathogenic gene products, underlying human diseases and traits. 
+- Deep intronic variants that disrupt RS could alter splicing, leading to intronic retentions with/without frameshifts and premature stops, thus resulting in deleterious and potentially pathogenic gene products, contributing to human diseases and traits. 
 
-- DIVERS is a genome-wide computational method for detecting deep intronic variants that may impact RS, systematically and efficiently. DIVERS currently identifies five types of variants: "RS-AGGT", "RS-BP/BP2", "RS-AGAIN", "RS-DW5SS", and "CRYPRS".
+- DIVERS is a genome-wide computational method to systematically detect and interpret deep intronic variants that may impact RS. DIVERS currently identifies five types of RS-variants: "RS-AGGT", "RS-BP/BP2", "RS-AGAIN", "RS-DW5SS", and "CRYPRS".
 
-- This standalone version can be easily implemented by a one-line command, for large-scale analyses. We also provide the [webserver version](https://hgidsoft.rockefeller.edu/DIVERS) with a user-friendly interface, for small-scale analyses.
+- This standalone version can be easily implemented by a one-line command, for large/small-scale analyses. We also provide the [webserver version](https://hgidsoft.rockefeller.edu/DIVERS) with a user-friendly interface, for small-scale analyses.
 
 ## News
 - Apr 2025: DIVERS webserver & GitHub were launched.  
@@ -48,7 +48,7 @@ Due to the file size limit, please download the [DIVERS_Detection.bed](http://hg
   - RARE: if the RS-site is absent of common human variants (Y/N)
   - CONSERV: if the RS-site is positively scored by conservation score phyloP (numerical)
   - RNALM: if the RS-site is predicted by RNA language model (0-1)
-  - All other annotation fields from the input data: Note: if you are using DIVERS_VCF_batch.py, all VCF files should have the same annotation fields.
+  - All other annotation fields from the input data (Note: for DIVERS_VCF_batch.py, all input VCFs must contain the same annotation fields)
 
 ### Command & Parameters (DIVERS_VCF.py)
 ```
