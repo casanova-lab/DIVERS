@@ -64,7 +64,7 @@ Parameter | Type | Description | Default
 
 ### Command & Parameters (DIVERS_VCF_batch.py)
 ```
-python DIVERS-batch.py -d ./foldername/ -s samplelist.txt -o output.csv
+python DIVERS-batch.py -d foldername/ -s samplelist.txt -o output.csv
 ```
 
 Parameter | Type | Description | Default
